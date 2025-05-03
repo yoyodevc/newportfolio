@@ -1,5 +1,6 @@
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import React from 'react';
+
 import ParticlesComponent from './components/Particles';
 import Header from './components/Header';
 import Header1 from './components/Header1';
@@ -10,7 +11,16 @@ import Blogs from './components/Blogs';
 import FullBlog from './components/FullBlog';
 import Footer from './components/Footer';
 
-function App() {
+import blogEntries from './data/blogs';
+
+const App = () => {
+  useEffect(() => {
+    blogEntries.forEach((blog) => {
+      const img = new Image();
+      img.src = blog.thumbnail ?? '/thumbnail/default.webp';
+    });
+  }, []);
+
   return (
     <Router>
       <div className="relative w-full min-h-screen scroll-smooth">
