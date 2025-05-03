@@ -5,7 +5,7 @@ import blogEntries from '../data/blogs';
 const Blogs = () => {
   const [inView, setInView] = useState(false);
   const [showAll, setShowAll] = useState(false);
-  const [shouldAnimateNewCards, setShouldAnimateNewCards] = useState(false);
+  const sectionRef = useRef(null);
   const animationTriggered = useRef(false);
 
   const initialDisplayCount = 6;
@@ -14,67 +14,55 @@ const Blogs = () => {
   const displayedBlogs = showAll ? blogEntries : blogEntries.slice(0, initialDisplayCount);
 
   useEffect(() => {
-    const createObserver = (id, setInView) => {
-      const section = document.getElementById(id);
-      if (!section) return;
+    if (!sectionRef.current || animationTriggered.current) return;
 
-      const observer = new IntersectionObserver(
-        ([entry], obs) => {
-          if (entry.isIntersecting && !animationTriggered.current) {
-            setInView(true);
-            animationTriggered.current = true;
-            obs.unobserve(entry.target);
-          }
-        },
-        { threshold: 0.1 }
-      );
-      observer.observe(section);
-      return () => observer.disconnect();
-    };
-    const cleanupBlogs = createObserver('blogs', setInView);
-    return () => {
-      cleanupBlogs?.();
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          animationTriggered.current = true;
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, []);
 
   const toggleShowAll = () => {
-    if (!showAll) {
-      setShouldAnimateNewCards(true);
-      setShowAll(true);
-      setTimeout(() => {
-        setShouldAnimateNewCards(false);
-      }, 1000);
-    } else {
-      setShowAll(false);
-    }
+    setShowAll(prev => !prev);
   };
+
+  useEffect(() => {
+    const head = document.head;
+    blogEntries.slice(0, 6).forEach(blog => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = blog.thumbnail;
+      head.appendChild(link);
+    });
+  }, []);
 
   return (
     <div className="font-[Poppins] text-white">
       <section 
-        id="blogs" 
+        ref={sectionRef}
         className="min-h-[60vh] py-14 md:py-1 lg:py-0 xl:py-4 px-4 sm:px-6 md:px-16 relative z-10 2xl:pb-[1vh] pb-[1vh] sm:pb-[1vh] md:pb-[1vh] lg:pb-[1vh] xl:pb-[1vh]"
       >
-        <div className={`max-w-6xl mx-auto transition-opacity duration-700 ease-out ${inView ? 'animate-fade-up opacity-100' : 'opacity-0'}`}>
-          <h2 className="text-4xl font-bold text-center mb-16 text-lime-400">Blogs</h2>
+        <div className={`max-w-6xl mx-auto transition-opacity duration-700 ease-out ${inView ? 'opacity-100' : 'opacity-0'}`}>
+          <h2 className="text-4xl font-bold text-center mb-16 text-lime-400 animate-fade-up">Blogs</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayedBlogs.map((blog, index) => (
-              <div 
+              <div
                 key={blog.id}
-                id={`blog-${index}`}
                 className={`flex flex-col rounded-3xl bg-white/5 backdrop-blur-md p-7 shadow-lg shadow-black/20 hover:bg-white/8 transition-all duration-500 h-full ${
-                  (inView && index < initialDisplayCount) || 
-                  (showAll && index >= initialDisplayCount && shouldAnimateNewCards)
-                    ? 'animate-fade-up' 
-                    : ''
+                  inView ? 'animate-fade-up' : ''
                 }`}
-                style={{ 
-                  animationDelay: 
-                    (inView && index < initialDisplayCount) 
-                      ? `${index * 0.1 + 0.1}s` 
-                      : (showAll && index >= initialDisplayCount && shouldAnimateNewCards)
-                        ? '0.1s'
-                        : '0s'
+                style={{
+                  animationDelay: inView ? `${Math.min(index * 0.1, 1)}s` : '0s'
                 }}
               >
                 {/* Blog Image */}
@@ -82,7 +70,6 @@ const Blogs = () => {
                   <img 
                     src={blog.thumbnail || '/placeholder-blog.jpg'} 
                     alt={blog.title}
-                    loading="lazy"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -107,7 +94,6 @@ const Blogs = () => {
             ))}
           </div>
           
-          {/* Show More/Less Button */}
           {hasMoreBlogs && (
             <div className="flex justify-center mt-10">
               <button
