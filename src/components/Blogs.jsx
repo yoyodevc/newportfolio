@@ -26,7 +26,7 @@ const Blogs = () => {
             obs.unobserve(entry.target);
           }
         },
-        { threshold: 0.5 }
+        { threshold: 0.1 }
       );
       observer.observe(section);
       return () => observer.disconnect();
