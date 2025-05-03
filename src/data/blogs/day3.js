@@ -2,7 +2,7 @@ const day3 = {
     title: "Day 3: Historical Turn",
     date: "April 9, 2025",
     location: "Manila & Quezon",
-    heroImage: "/blogs/thumbnail/day3.jpg",
+    heroImage: "/blogs/thumbnail/day3.webp",
     morningTrip: {
       title: "National Museum of Natural History",
       paragraphs: [

@@ -2,7 +2,7 @@ const day7 = {
     title: "Day 7-8: A Trip to Remember",
     date: "April 13-14, 2025",
     location: "Manila - Zamboanga",
-    heroImage: "/blogs/thumbnail/sunrise.jpg",
+    heroImage: "/blogs/thumbnail/sunrise.webp",
     morningTrip: {
       title: "Departure from Baguio",
       paragraphs: [

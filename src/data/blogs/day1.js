@@ -2,7 +2,7 @@ const day1 = {
     title: "Day 1: When in Manila",
     date: "April 7, 2025",
     location: "Manila",
-    heroImage: "/blogs/thumbnail/day1.jpg",
+    heroImage: "/blogs/thumbnail/day1.webp",
     morningTrip: {
       title: "Quick Tour of Rizal Park",
       paragraphs: [

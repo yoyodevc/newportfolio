@@ -2,7 +2,7 @@ const day2 = {
     title: "Day 2: Peaceful Bay",
     date: "April 8, 2025",
     location: "Alpine Wilderness",
-    heroImage: "/blogs/thumbnail/day2.jpg",
+    heroImage: "/blogs/thumbnail/day2.webp",
     morningTrip: {
       title: "Subic",
       paragraphs: [

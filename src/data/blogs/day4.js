@@ -2,7 +2,7 @@ const day4 = {
     title: "Day 4: Bangko Sentral ng Pilipinas & Hytec Power Inc",
     date: "April 10, 2025",
     location: "Quezon City",
-    heroImage: "/blogs/thumbnail/day4.jpg",
+    heroImage: "/blogs/thumbnail/day4.webp",
     morningTrip: {
       title: "Bangko Sentral ng Pilipinas",
       paragraphs: [

@@ -2,7 +2,7 @@ const day5 = {
     title: "Day 5: A Raily Day",
     date: "April 11, 2025",
     location: "Quezon City",
-    heroImage: "/blogs/thumbnail/day5.jpg",
+    heroImage: "/blogs/thumbnail/day5.webp",
     morningTrip: {
       title: "Metropolitan Manila Development Authority",
       paragraphs: [
