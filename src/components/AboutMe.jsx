@@ -15,7 +15,7 @@ const AboutMe = () => {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     );
     const section = document.getElementById('about');
     if (section) {
@@ -35,11 +35,11 @@ const AboutMe = () => {
     <section
       id="about"
       className={`min-h-[90vh] px-4 sm:px-6 md:px-16 text-white font-[Poppins] bg-transparent relative z-10 flex items-center justify-center transition-opacity duration-700 ease-out ${inView ? 'animate-fade-up' : 'opacity-0'}`}
-      style={{ animationDelay: '0.2s' }}
+      style={{ animationDelay: '0.1s' }}
     >
       <div className="w-full max-w-6xl flex flex-col md:flex-row items-center gap-6 md:gap-12">
         {/* Profile Image */}
-        <div className={`w-40 h-40 sm:w-52 sm:h-52 md:w-72 md:h-72 rounded-full overflow-hidden shadow-lg shadow-black/30 border-4 border-white/10 backdrop-blur-sm shrink-0 ${inView ? 'animate-fade-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
+        <div className={`w-40 h-40 sm:w-52 sm:h-52 md:w-72 md:h-72 rounded-full overflow-hidden shadow-lg shadow-black/30 border-4 border-white/10 backdrop-blur-sm shrink-0 ${inView ? 'animate-fade-up' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
           <img
             src="/profile.jpg"
             alt="Fred's Profile"
@@ -48,7 +48,7 @@ const AboutMe = () => {
         </div>
 
         {/* Text Content */}
-        <div className={`flex-1 space-y-6 text-center md:text-left ${inView ? 'animate-fade-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
+        <div className={`flex-1 space-y-6 text-center md:text-left ${inView ? 'animate-fade-up' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
           <h2 className="text-4xl sm:text-5xl font-bold text-lime-400">Fred</h2>
           <p className="text-lg sm:text-xl text-gray-300">4th Year Student — BS Information Technology</p>
           <p className="text-gray-400 leading-relaxed text-base sm:text-lg text-justify">

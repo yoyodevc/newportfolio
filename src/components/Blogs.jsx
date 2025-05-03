@@ -71,7 +71,7 @@ const Blogs = () => {
                 style={{ 
                   animationDelay: 
                     (inView && index < initialDisplayCount) 
-                      ? `${index * 0.2 + 0.4}s` 
+                      ? `${index * 0.1 + 0.1}s` 
                       : (showAll && index >= initialDisplayCount && shouldAnimateNewCards)
                         ? '0.1s'
                         : '0s'
