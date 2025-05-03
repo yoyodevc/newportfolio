@@ -18,7 +18,7 @@ const Projects = () => {
             obs.unobserve(entry.target);
           }
         },
-        { threshold: 0.3, rootMargin: '0px 0px -50px 0px' }
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
       );
       observer.observe(section);
 

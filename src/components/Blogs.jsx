@@ -55,7 +55,7 @@ const Blogs = () => {
         id="blogs" 
         className="min-h-[60vh] py-14 md:py-1 lg:py-0 xl:py-4 px-4 sm:px-6 md:px-16 relative z-10 2xl:pb-[1vh] pb-[1vh] sm:pb-[1vh] md:pb-[1vh] lg:pb-[1vh] xl:pb-[1vh]"
       >
-        <div className={`max-w-6xl mx-auto transition-opacity duration-700 ease-out ${inView ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`max-w-6xl mx-auto transition-opacity duration-700 ease-out ${inView ? 'opacity-100 animate-fade-up' : 'opacity-0'}`}>
           <h2 className="text-4xl font-bold text-center mb-16 text-lime-400">Blogs</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayedBlogs.map((blog, index) => (
