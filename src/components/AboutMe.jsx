@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FiFacebook, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
-import ContactModal from './insidecomponents/ContactModal'; // Import the modal
+import ContactModal from './insidecomponents/ContactModal';
 
 const AboutMe = () => {
   const [inView, setInView] = useState(false);
@@ -34,7 +34,7 @@ const AboutMe = () => {
   return (
     <section
       id="about"
-      className={`min-h-screen py-24 px-4 sm:px-6 md:px-16 text-white font-[Poppins] bg-transparent relative z-10 flex items-center justify-center transition-opacity duration-700 ease-out ${inView ? 'animate-fade-up' : 'opacity-0'}`}
+      className={`min-h-[90vh] px-4 sm:px-6 md:px-16 text-white font-[Poppins] bg-transparent relative z-10 flex items-center justify-center transition-opacity duration-700 ease-out ${inView ? 'animate-fade-up' : 'opacity-0'}`}
       style={{ animationDelay: '0.2s' }}
     >
       <div className="w-full max-w-6xl flex flex-col md:flex-row items-center gap-6 md:gap-12">
@@ -57,16 +57,16 @@ const AboutMe = () => {
 
           {/* Social Icons */}
           <div className="flex flex-wrap justify-center md:justify-start gap-4 sm:gap-4 md:gap-4 lg:gap-4 mt-6">
-            <a href="https://www.facebook.com/john.fredrick.lim.2025/" target="_blank" rel="noopener noreferrer" className="p-4 sm:p-4 md:px-4 md:py-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/5 shadow-sm shadow-black/20 hover:bg-white/10 transition-all duration-300 active:scale-95">
+            <a href="https://www.facebook.com/john.fredrick.lim.2025/" target="_blank" rel="noopener noreferrer" className="p-4 sm:p-4 md:px-4 md:py-4 rounded-2xl bg-white/5 backdrop-blur-md shadow-sm shadow-black/20 hover:bg-white/10 transition-all duration-300 active:scale-95">
               <FiFacebook className="text-white w-7 h-7 sm:w-7 sm:h-7" />
             </a>
-            <a href="https://github.com/yoyodevc" target="_blank" rel="noopener noreferrer" className="p-4 sm:p-4 md:px-4 md:py-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/5 shadow-sm shadow-black/20 hover:bg-white/10 transition-all duration-300 active:scale-95">
+            <a href="https://github.com/yoyodevc" target="_blank" rel="noopener noreferrer" className="p-4 sm:p-4 md:px-4 md:py-4 rounded-2xl bg-white/5 backdrop-blur-md shadow-sm shadow-black/20 hover:bg-white/10 transition-all duration-300 active:scale-95">
               <FiGithub className="text-white w-7 h-7 sm:w-7 sm:h-7" />
             </a>
-            <a href="https://www.linkedin.com/in/john-fredrick-lim-4b9171361/" target="_blank" rel="noopener noreferrer" className="p-4 sm:p-4 md:px-4 md:py-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/5 shadow-sm shadow-black/20 hover:bg-white/10 transition-all duration-300 active:scale-95">
+            <a href="https://www.linkedin.com/in/john-fredrick-lim-4b9171361/" target="_blank" rel="noopener noreferrer" className="p-4 sm:p-4 md:px-4 md:py-4 rounded-2xl bg-white/5 backdrop-blur-md shadow-sm shadow-black/20 hover:bg-white/10 transition-all duration-300 active:scale-95">
               <FiLinkedin className="text-white w-7 h-7 sm:w-7 sm:h-7" />
             </a>
-            <button onClick={openModal} className="relative p-4 sm:p-4 md:px-4 md:py-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/5 shadow-sm shadow-black/20 hover:bg-white/10 transition-all duration-300 active:scale-95">
+            <button onClick={openModal} className="relative p-4 sm:p-4 md:px-4 md:py-4 rounded-2xl bg-white/5 backdrop-blur-md shadow-sm shadow-black/20 hover:bg-white/10 transition-all duration-300 active:scale-95">
               <FiMail className="text-white w-7 h-7 sm:w-7 sm:h-7" />
               <span className="absolute top-0.5 right-0.5 w-3 h-3 bg-red-500 rounded-full animate-ping opacity-75" />
               <span className="absolute top-0.5 right-0.5 w-3 h-3 bg-red-500 rounded-full" />

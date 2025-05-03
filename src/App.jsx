@@ -1,18 +1,28 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React from 'react';
 import ParticlesComponent from './components/Particles';
 import Header from './components/Header';
+import Header1 from './components/Header1';
 import Hero from './components/Hero';
 import AboutMe from './components/AboutMe';
+import Projects from './components/Projects';
+import Blogs from './components/Blogs';
+import FullBlog from './components/FullBlog';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="relative w-full min-h-screen scroll-smooth">
-      {/* Particles component with a lower z-index */}
-      <ParticlesComponent id="particles" className="absolute top-0 left-0 -z-20 h-full w-full" />
-      <Header />
-      <Hero />
-      <AboutMe />
-    </div>
+    <Router>
+      <div className="relative w-full min-h-screen scroll-smooth">
+        <ParticlesComponent id="particles" className="absolute top-0 left-0 -z-20 h-full w-full" />
+        <Routes>
+          {/* normal view */}
+          <Route path="/" element={<><Header /><Hero /><AboutMe /><Projects /><Blogs /><Footer /></>} />
+          {/* fullblog route */}
+          <Route path="/blog/:id" element={<><Header1 /><FullBlog /><Footer /></>} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
