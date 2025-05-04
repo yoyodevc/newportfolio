@@ -85,7 +85,7 @@ const Blogs = () => {
     <div className="font-[Poppins] text-white">
       <section 
         id="blogs" 
-        className="pt-24 px-4 sm:px-6 md:px-16 relative z-10 pb-16 md:pb-4"
+        className="py-1 md:py-12 lg:py-12 xl:py-12 px-4 sm:px-6 md:px-16 relative z-10"
       >
         <div className={`max-w-6xl mx-auto transition-opacity duration-700 ease-out ${inView ? 'opacity-100 animate-fade-up' : 'opacity-0'}`}>
           <h2 className="text-4xl font-bold text-center mb-16 text-lime-400">

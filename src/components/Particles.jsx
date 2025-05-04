@@ -24,7 +24,7 @@ const ParticlesComponent = (props) => {
           value: "#1a202c",
         },
       },
-      fpsLimit: 60,
+      fpsLimit: 30,
       interactivity: {
         events: {
           onClick: {

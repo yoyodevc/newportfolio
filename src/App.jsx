@@ -11,6 +11,7 @@ import Projects from './components/Projects';
 import Blogs from './components/Blogs';
 import FullBlog from './components/FullBlog';
 import Footer from './components/Footer';
+import Certifications from './components/Certifications';
 
 import blogEntries from './data/blogs';
 
@@ -22,7 +23,7 @@ const App = () => {
         <ParticlesComponent id="particles" className="absolute top-0 left-0 -z-20 h-full w-full" />
         <Routes>
           {/* normal view */}
-          <Route path="/" element={<><Header /><Hero /><AboutMe /><Projects /><Blogs /><Footer /></>} />
+          <Route path="/" element={<><Header /><Hero /><AboutMe /><Projects /><Certifications /><Blogs /><Footer /></>} />
           {/* fullblog route */}
           <Route path="/blog/:id" element={<><Header1 /><FullBlog /><Footer /></>} />
         </Routes>
