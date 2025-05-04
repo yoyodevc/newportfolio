@@ -43,6 +43,7 @@ const FullBlog = () => {
               <img
                 src={blog.heroImage}
                 alt={blog.title}
+                loading="lazy"
                 className="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700"
               />
             </div>
@@ -72,6 +73,7 @@ const FullBlog = () => {
                 <img
                   src={blog.morningTrip.image}
                   alt={blog.morningTrip.title}
+                  loading="lazy"
                   className="w-full h-full object-contain opacity-100 hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -96,6 +98,7 @@ const FullBlog = () => {
                 <img
                   src={blog.afternoonTrip.image}
                   alt={blog.afternoonTrip.title}
+                  loading="lazy"
                   className="w-full h-full object-fill opacity-100 hover:scale-105 transition-transform duration-500"
                 />
               </div>

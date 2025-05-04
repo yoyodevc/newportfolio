@@ -51,7 +51,7 @@ const Projects = () => {
                 className={`flex flex-col md:flex-row items-center gap-6 rounded-3xl bg-white/5 backdrop-blur-md p-7 shadow-lg shadow-black/20 hover:bg-white/8 transition-all duration-500 ${
                   inViewp ? 'animate-fade-up' : ''
                 }`}
-                style={{ animationDelay: `${Math.min(index * 0.1 + 0.2, 1)}s`, animationFillMode: 'both' }}
+                style={{ animationDelay: `${Math.min(index * 0.2 + 0.4, 1)}s`, animationFillMode: 'both' }}
               >
                 {/* Project Image */}
                 <div className="w-full md:w-2/5 h-56 overflow-hidden rounded-2xl border border-white/10 shadow-md shadow-black/30">
@@ -110,7 +110,7 @@ const Projects = () => {
                 className={`flex flex-col md:flex-row items-center gap-6 rounded-3xl bg-white/5 backdrop-blur-md p-7 shadow-lg shadow-black/20 hover:bg-white/8 transition-all duration-500 ${
                   educationInView ? 'animate-fade-up' : ''
                 }`}
-                style={{ animationDelay: `${Math.min(index * 0.1 + 0.2, 1)}s`, animationFillMode: 'both' }}
+                style={{ animationDelay: `${Math.min(index * 0.2+ 0.4, 1)}s`, animationFillMode: 'both' }}
               >
                 {/* School Logo */}
                 <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white/10 shadow-md shadow-black/30 shrink-0 flex items-center justify-center bg-white/5">

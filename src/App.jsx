@@ -15,12 +15,6 @@ import Footer from './components/Footer';
 import blogEntries from './data/blogs';
 
 const App = () => {
-  useEffect(() => {
-    blogEntries.forEach((blog) => {
-      const img = new Image();
-      img.src = blog.thumbnail ?? '/thumbnail/default.webp';
-    });
-  }, []);
 
   return (
     <Router>
