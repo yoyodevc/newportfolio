@@ -3,7 +3,7 @@ const blogEntries = [
     id: 1,
     title: 'Day 1: When in Manila',
     date: 'April 7, 2025',
-    thumbnail: "/blogs/thumbnail/day1.jpg",
+    thumbnail: "/blogs/thumbnail/day1.webp",
     description: 'First day of the tour! We had a quick city tour around Manila, visiting iconic spots from Intramuros to Rizal Park.',
     fullContent: `Today was an exciting start to our journey in Manila. We visited historical landmarks such as Intramuros, the oldest district in the city, and the famous Rizal Park, which holds great significance in Filipino history. We also had a chance to enjoy some local delicacies along the way. The city was bustling with energy, and I can't wait for what tomorrow brings!`
   },
