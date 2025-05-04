@@ -8,8 +8,9 @@ const Blogs = () => {
   const [animatedCards, setAnimatedCards] = useState([]);
   const [loadedImages, setLoadedImages] = useState({});
   const [imageAnimationState, setImageAnimationState] = useState({});
-
-  const initialDisplayCount = 6;
+  const [hasAnimatedOnce, setHasAnimatedOnce] = useState(false);
+  
+  const initialDisplayCount = 3;
   const totalBlogs = blogEntries.length;
   const hasMoreBlogs = totalBlogs > initialDisplayCount;
   const displayedBlogs = showAll ? blogEntries : blogEntries.slice(0, initialDisplayCount);
@@ -24,7 +25,7 @@ const Blogs = () => {
         // Set a slight delay before starting the animation
         setTimeout(() => {
           setImageAnimationState(prev => ({ ...prev, [id]: true }));
-        }, 50);
+        }, 200);
       };
       img.onerror = () => {
         setLoadedImages(prev => ({ ...prev, [id]: false }));
@@ -43,11 +44,11 @@ const Blogs = () => {
             setInView(true);
             obs.unobserve(entry.target);
             displayedBlogs.forEach((blog, index) => {
-              loadImageWithDelay(blog.id, blog.thumbnail || '/placeholder-blog.jpg', index * 500);
+              loadImageWithDelay(blog.id, blog.thumbnail || '/placeholder-blog.jpg', index * 100);
             });
           }
         },
-        { threshold: 0.05, rootMargin: '0px 0px -50px 0px' }
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
       );
       observer.observe(section);
       return () => observer.disconnect();
@@ -63,21 +64,23 @@ const Blogs = () => {
       cancelAnimationFrame(rafId);
     };
   }, [displayedBlogs]);
-
+  
   const toggleShowAll = () => {
     if (!showAll) {
       setShowAll(true);
-      setTimeout(() => {
-        const newAnimated = [];
-        for (let i = initialDisplayCount; i < blogEntries.length; i++) {
-          newAnimated.push(i);
-          loadImageWithDelay(blogEntries[i].id, blogEntries[i].thumbnail || '/placeholder-blog.jpg', (i - initialDisplayCount) * 150);
-        }
-        setAnimatedCards(newAnimated);
-      }, 50);
+      if (!hasAnimatedOnce) {
+        setTimeout(() => {
+          const newAnimated = [];
+          for (let i = initialDisplayCount; i < blogEntries.length; i++) {
+            newAnimated.push(i);
+            loadImageWithDelay(blogEntries[i].id, blogEntries[i].thumbnail || '/placeholder-blog.jpg', (i - initialDisplayCount) * 100);
+          }
+          setAnimatedCards(newAnimated);
+          setHasAnimatedOnce(true); // <- mark that animation has been triggered
+        }, 50);
+      }
     } else {
       setShowAll(false);
-      setAnimatedCards([]);
     }
   };
 
@@ -98,10 +101,10 @@ const Blogs = () => {
                 key={blog.id}
                 id={`blog-card-${index}`}
                 className={`flex flex-col rounded-3xl bg-white/5 backdrop-blur-md p-7 shadow-lg shadow-black/20 hover:bg-white/8 transition-all duration-500 h-full ${
-                  inView && (index < initialDisplayCount || animatedCards.includes(index)) ? 'animate-fade-up' : ''
+                  inView && (index < initialDisplayCount || (animatedCards.includes(index) && !hasAnimatedOnce)) ? 'animate-fade-up' : ''
                 }`}
                 style={{
-                  animationDelay: `${(index < initialDisplayCount ? index : index - initialDisplayCount) * 0.15}s`,
+                  animationDelay: `${(index < initialDisplayCount ? index : index - initialDisplayCount) * 0.5}s`,
                   animationFillMode: 'both',
                   opacity: (index < initialDisplayCount || animatedCards.includes(index)) ? 1 : 0
                 }}

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-
 import ParticlesComponent from './components/Particles';
 import Header from './components/Header';
 import Header1 from './components/Header1';
@@ -13,9 +12,27 @@ import FullBlog from './components/FullBlog';
 import Footer from './components/Footer';
 import Certifications from './components/Certifications';
 
+import certs from './data/certs';
 import blogEntries from './data/blogs';
 
 const App = () => {
+  useEffect(() => {
+    const preloadImages = () => {
+      const certImages = certs.map(cert => cert.image); 
+      const blogImages = blogEntries.map(blog => blog.thumbnail);
+
+      const imagesToPreload = [...certImages, ...blogImages];
+
+      imagesToPreload.forEach(src => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => console.log(`${src} loaded`);
+        img.onerror = () => console.log(`Error loading ${src}`);
+      });
+    };
+
+    preloadImages();
+  }, []);
 
   return (
     <Router>
