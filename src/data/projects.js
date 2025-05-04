@@ -24,21 +24,21 @@ export const projects = [
   export const education = [
     {
       id: 1,
-      institution: "Western Mindanao State University",
-      degree: "BS Information Technology",
-      period: "2021 - Present",
-      logo: "wmsu.webp",
+      institution: "Hatchify",
+      degree: "Backend Developer",
+      period: "May 2023 - December 2024",
+      logo: "hatchifyeyes.png",
       description:
-        "Currently pursuing a BS in Information Technology at Western Mindanao State University, with a focus on web development and database management.",
+        "Served as Backend Developer for Hatchify, building core functionalities using React Native (Expo), JavaScript, Firebase, and C++. This project kickstarted my journey in React and mobile development, and introduced me to IoT through Arduino integration—laying the groundwork for future work in connected systems and embedded tech.",
     },
     {
       id: 2,
-      institution: "Saint Joseph School Foundation Incorporated",
-      degree: "Elementary, Junior High School, and Senior High School",
-      period: "2009 - 2021",
-      logo: "sjs.webp",
+      institution: "Tech-A-Lang",
+      degree: "Backend Developer/Database Engineer",
+      period: "January 2023 - April 2023",
+      logo: "techalang.jfif",
       description:
-        "Graduated with honors. Participated in STEM-driven competitions and led the school's sci-math club.",
+        "Worked as a Co-Developer focused on backend development and database management using PHP, JavaScript, and MySQL. Strengthened my web development skills and learned to design scalable, secure database schemas for effective data handling and smooth frontend-backend integration.",
     },
   ];
   
