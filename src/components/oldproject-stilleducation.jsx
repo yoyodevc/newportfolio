@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { FiExternalLink, FiGithub, FiCalendar, FiBriefcase } from 'react-icons/fi';
+import { FiExternalLink, FiGithub } from 'react-icons/fi';
 import { projects, education } from '../data/projects';
 
 const Projects = () => {
   const [inViewp, setInViewp] = useState(false);
-  const [experienceInView, setExperienceInView] = useState(false);
+  const [educationInView, setEducationInView] = useState(false);
 
   useEffect(() => {
     const createObserver = (id, setInView) => {
@@ -26,11 +26,11 @@ const Projects = () => {
     };
 
     const cleanupProjects = createObserver('projects', setInViewp);
-    const cleanupExperience = createObserver('experience', setExperienceInView);
+    const cleanupEducation = createObserver('education', setEducationInView);
 
     return () => {
       cleanupProjects?.();
-      cleanupExperience?.();
+      cleanupEducation?.();
     };
   }, []);
 
@@ -95,65 +95,45 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* education changed to work */}
+      {/* Education Section */}
       <section 
-        id="experience" 
-        className="py-1 md:py-12 lg:py-16 xl:py-16 px-4 sm:px-6 md:px-16 relative z-10"
+        id="education" 
+        className="py-1 md:py-12 lg:py-12 xl:py-12 px-4 sm:px-6 md:px-16 relative z-10"
       >
-        <div className={`max-w-6xl mx-auto transition-opacity duration-700 ease-out ${experienceInView ? 'opacity-100 animate-fade-up' : 'opacity-0'}`}>
-          <h2 className="text-4xl font-bold text-center mb-16 text-lime-400">Work Experience</h2>
-          <div className="relative">
-            {/* timeline line */}
-            <div className="absolute left-2 h-full w-0.5 bg-white/20 transform -translate-x-1/2 z-0"></div>
-            <div className="space-y-12">
-              {education.map((exp, index) => (
-                <div 
-                  key={exp.id}
-                  className={`relative flex flex-col items-start ${
-                    experienceInView ? 'animate-fade-up' : ''
-                  }`}
-                  style={{ animationDelay: `${Math.min(index * 0.2 + 0.4, 1)}s`, animationFillMode: 'both' }}
-                >
-                  {/* dot*/}
-                  <div className="absolute left-2 top-8 w-4 h-4 rounded-full bg-white border-2 border-white/20 transform -translate-x-1/2 z-10"></div>
-                  <div className="absolute left-2 top-8 w-4 h-4 rounded-full bg-white border-2 border-white/20 transform -translate-x-1/2 z-10 animate-ping opacity-75"></div>
-                  <div className="hidden md:flex w-full justify-center mb-4">
-                    <div className="bg-white/10 text-gray-300 text-sm px-4 py-1 rounded-full backdrop-blur-sm">
-                      <FiCalendar className="inline mr-2" /> {exp.period}
-                    </div>
-                  </div>
-                  {/* card */}
-                  <div className="w-full pl-8">
-                    <div className="rounded-3xl bg-white/5 backdrop-blur-md p-7 shadow-lg shadow-black/20 hover:bg-white/8 transition-all duration-500">
-                      <div className="flex flex-col md:flex-row items-start gap-6">
-                        <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 shadow-md shadow-black/30 shrink-0 flex items-center justify-center bg-white/5 mx-auto md:mx-0">
-                          <img 
-                            src={exp.logo} 
-                            alt={exp.institution} 
-                            loading="lazy"
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <div className="flex-1 space-y-3 text-center md:text-left">
-                          {/* mobile date */}
-                          <div className="md:hidden flex items-center justify-center gap-2 text-sm text-gray-300 mb-2 bg-white/10 px-3 py-1 rounded-full w-fit mx-auto">
-                            <FiCalendar />
-                            <span>{exp.period}</span>
-                          </div>
-                          <h3 className="text-2xl font-bold text-gray-300">{exp.institution}</h3>
-                          <div className="flex flex-col md:flex-row md:items-center gap-2">
-                            <p className="text-lg font-medium text-gray-300 flex items-center justify-center md:justify-start gap-2">
-                              <FiBriefcase /> {exp.degree}
-                            </p>
-                          </div>
-                          <p className="text-gray-400 text-base text-justify">{exp.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+        <div className={`max-w-6xl mx-auto transition-opacity duration-700 ease-out ${educationInView ? 'opacity-100 animate-fade-up' : 'opacity-0'}`}>
+          <h2 className="text-4xl font-bold text-center mb-16 text-lime-400">Work Experiences</h2>
+
+          <div className="space-y-12">
+            {education.map((edu, index) => (
+              <div 
+                key={edu.id}
+                className={`flex flex-col md:flex-row items-center gap-6 rounded-3xl bg-white/5 backdrop-blur-md p-7 shadow-lg shadow-black/20 hover:bg-white/8 transition-all duration-500 ${
+                  educationInView ? 'animate-fade-up' : ''
+                }`}
+                style={{ animationDelay: `${Math.min(index * 0.2+ 0.4, 1)}s`, animationFillMode: 'both' }}
+              >
+                {/* School Logo */}
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white/10 shadow-md shadow-black/30 shrink-0 flex items-center justify-center bg-white/5">
+                  <img 
+                    src={edu.logo} 
+                    alt={edu.institution} 
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-              ))}
-            </div>
+
+                {/* Education Details */}
+                <div className="flex-1 space-y-3 text-center md:text-left">
+                  <h3 className="text-2xl font-bold text-gray-300">{edu.institution}</h3>
+                  <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                    <p className="text-lg font-medium text-gray-300">{edu.degree}</p>
+                    <span className="hidden md:block text-gray-300">•</span>
+                    <p className="text-sm font-medium text-gray-300">{edu.period}</p>
+                  </div>
+                  <p className="text-gray-400 text-base text-justify">{edu.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

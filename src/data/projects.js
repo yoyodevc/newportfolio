@@ -34,7 +34,7 @@ export const projects = [
     {
       id: 2,
       institution: "Tech-A-Lang",
-      degree: "Backend Developer/Database Engineer",
+      degree: "Backend/Data Engineer",
       period: "January 2023 - April 2023",
       logo: "techalang.jfif",
       description:
