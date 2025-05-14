@@ -52,7 +52,8 @@ const AboutMe = () => {
           <h2 className="text-4xl sm:text-5xl font-bold text-lime-400">Fred</h2>
           <p className="text-lg sm:text-xl text-gray-300">4th Year Student — BS Information Technology</p>
           <p className="text-gray-400 leading-relaxed text-base sm:text-lg text-justify">
-            I'm a passionate front-end developer and tech enthusiast. I enjoy building accessible, user-focused web interfaces and constantly improving my craft through learning and experimentation. Outside of coding, I explore UI/UX design and contribute to open-source projects.
+            I'm a passionate front-end developer and tech enthusiast who enjoys building accessible, user-focused we interfaces while continuously improvingh my skills through learning and experimentation. Outside of coding, I explore UI/UX designs, dive into
+            IT analysis and computer hobbyist activities, and gaming. This enhances my problem-solving abilities and technical insightsm giving me a well-rounded perspective when approaching complex challenges.
           </p>
 
           {/* Social Icons */}
@@ -66,7 +67,7 @@ const AboutMe = () => {
             <a href="https://www.linkedin.com/in/john-fredrick-lim-4b9171361/" target="_blank" rel="noopener noreferrer" className="p-4 sm:p-4 md:px-4 md:py-4 rounded-2xl bg-white/5 backdrop-blur-md shadow-sm shadow-black/20 hover:bg-white/10 transition-all duration-300 active:scale-95">
               <FiLinkedin className="text-white w-7 h-7 sm:w-7 sm:h-7" />
             </a>
-            <button onClick={openModal} className="relative p-4 sm:p-4 md:px-4 md:py-4 rounded-2xl bg-white/5 backdrop-blur-md shadow-sm shadow-black/20 hover:bg-white/10 transition-all duration-300 active:scale-95">
+            <button onClick={openModal} className="relative p-4 sm:p-4 md:px-4 md:py-4 rounded-2xl bg-white/5 backdrop-blur-md shadow-sm shadow-black/20 hover:bg-white/10 transition-all duration-300 active:scale-95 cursor-pointer">
               <FiMail className="text-white w-7 h-7 sm:w-7 sm:h-7" />
               <span className="absolute top-0.5 right-0.5 w-3 h-3 bg-red-500 rounded-full animate-ping opacity-75" />
               <span className="absolute top-0.5 right-0.5 w-3 h-3 bg-red-500 rounded-full" />

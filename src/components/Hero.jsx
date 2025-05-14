@@ -8,10 +8,10 @@ const Hero = () => {
         Hi, I'm <span className="font-bold text-lime-400">Fred</span>
       </h1>
       <h2 className="text-xl md:text-2xl animate-fade-up text-gray-300" style={{ animationDelay: '0.5s' }}>
-        <span>A </span>
         <span>
+          A
           <Typewriter
-            words={['Front-End Developer', 'Web Designer', 'Student Developer']}
+            words={['n IT Enthusiast',' Front-End Developer', ' Web Designer', ' Student Developer',]}
             loop={0}
             cursor
             cursorStyle="|"
