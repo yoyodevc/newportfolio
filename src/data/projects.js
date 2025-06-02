@@ -26,7 +26,7 @@ export const projects = [
       id: 1,
       institution: "Hatchify",
       degree: "Backend Developer",
-      period: "May 2023 - December 2024",
+      period: "May 2023 - Dec 2024",
       logo: "hatchifyeyes.png",
       description:
         "Served as Backend Developer for Hatchify, building core functionalities using React Native (Expo), JavaScript, Firebase, and C++. This project kickstarted my journey in React and mobile development, and introduced me to IoT through Arduino integration—laying the groundwork for future work in connected systems and embedded tech.",
@@ -35,7 +35,7 @@ export const projects = [
       id: 2,
       institution: "Tech-A-Lang",
       degree: "Backend/Data Engineer",
-      period: "January 2023 - April 2023",
+      period: "Jan 2023 - Apr 2023",
       logo: "techalang.jfif",
       description:
         "Worked as a Co-Developer focused on backend development and database management using PHP, JavaScript, and MySQL. Strengthened my web development skills and learned to design scalable, secure database schemas for effective data handling and smooth frontend-backend integration.",
